@@ -1,0 +1,12 @@
+---
+- hosts: docker
+  remote_user: ubuntu
+  tasks:
+  - name: "Configure app server(s)"
+    docker_container:
+      name: nginx in docker
+      image: englert/nginx
+      state: present
+      restart: yes
+      ports:
+      - "80:80"
